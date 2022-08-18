@@ -6,9 +6,7 @@ const App = () => {
     const double = num => num * 2;
     const square = num => num * num;
 
-    const res = square(double(x));
-
-    return <h1>{res}</h1>;
+    return <h1>{square(double(x))}</h1>;
 }
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
