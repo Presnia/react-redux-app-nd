@@ -4,8 +4,11 @@ import ReactDOM from 'react-dom/client';
 const App = () => {
 
     function someFn() {
+        const arr = ['some', ' new', ' data'];
+        const result = arr.map(el => el + ' same,');
+
         return function() {
-            return 'app';
+            return result;
         }
     }
     function fn(func) {
