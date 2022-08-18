@@ -1,24 +1,17 @@
-import React from 'react';
+import React, {useState} from 'react';
 import ReactDOM from 'react-dom/client';
-import { pipe } from 'lodash/fp';
 
 const App = () => {
-    const x = 3;
-    const double = num => num * 2;
-    const square = num => num * num;
-    const half = num => num / 2;
-    // const divide = (num1, num2) => num1 / num2;
-    const divide = (num2) => {
-        return function(num1) {
-            return num1 / num2;
-        }
-    }
-    const MathCalculate =  pipe(double, square, divide(3));
+    const [state, setState] = useState({});
+    //setState(prevState => ({...prevState, id:'123'})); creating a new object with some new property
+    const obj1 = {id: 2};
+    //const obj2 = {obj1}; creating a copy of obj1
+    const obj2 = {...obj1}; //creating a new object with all the properties of obj1
 
     return (
         <>
-            <h1>{MathCalculate(x)}</h1>
-            <h2>{half(MathCalculate(x))}</h2>
+            <h1>App</h1>
+            <h2>Something about app</h2>
         </>
     );
 }
