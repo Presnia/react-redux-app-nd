@@ -3,9 +3,7 @@ import ReactDOM from 'react-dom/client';
 
 const App = () => {
     const arr = ['some', ' new', ' data'];
-    function formatArr(el) {
-        return el + ' same,';
-    }
+    const formatArr = el =>  el + ' same,';
 
     return <h1>{arr.map(formatArr)}</h1>;
 }
