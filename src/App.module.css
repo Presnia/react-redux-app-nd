@@ -1,0 +1,58 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: Roboto, sans-serif;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+    height: 50vh;
+    margin: auto;
+    color: gray;
+}
+
+.title {
+    color: lightblue;
+}
+
+.container ul {
+    width: 60%;
+}
+
+.container h1 {
+    padding: 2%;
+}
+
+.title {
+    text-transform: uppercase;
+}
+
+.container li {
+    display: inline-block;
+    width: 100%;
+    padding: 3% 0;
+}
+
+.container p {
+    padding: 2% 0;
+}
+
+button {
+    padding: 2%;
+    margin: 2% 2% 2% 0;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    color: gray;
+}
+
+button:hover {
+    background-color: tomato;
+    color: #FFF;
+    transition: 0.2s ease-in-out;
+}
