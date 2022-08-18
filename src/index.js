@@ -2,20 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 
 const App = () => {
-
-    function someFn() {
-        const arr = ['some', ' new', ' data'];
-        const result = arr.map(el => el + ' same,');
-
-        return function() {
-            return result;
-        }
-    }
-    function fn(func) {
-        return func();
+    const arr = ['some', ' new', ' data'];
+    function formatArr(el) {
+        return el + ' same,';
     }
 
-    return <h1> {fn(someFn())} </h1>
+    return <h1>{arr.map(formatArr)}</h1>;
 }
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
