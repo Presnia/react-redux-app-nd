@@ -3,10 +3,12 @@ import ReactDOM from 'react-dom/client';
 
 const App = () => {
     const x = 2;
-    const y = x * 2;
-    const z = y * y;
+    const double = num => num * 2;
+    const square = num => num * num;
 
-    return <h1>{z}</h1>;
+    const res = square(double(x));
+
+    return <h1>{res}</h1>;
 }
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
