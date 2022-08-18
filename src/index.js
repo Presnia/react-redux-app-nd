@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { compose, pipe } from 'lodash/fp';
+import { pipe } from 'lodash/fp';
 
 const App = () => {
     const x = 2;
     const double = num => num * 2;
     const square = num => num * num;
     const half = num => num / 2;
-    const MathCalculate =  compose(square, double);
+    const MathCalculate =  pipe(double, square);
 
     return (
         <>
