@@ -2,10 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 
 const App = () => {
-    const arr = ['some', ' new', ' data'];
-    const formatArr = el =>  el + ' same,';
+    const x = 2;
+    const y = x * 2;
+    const z = y * y;
 
-    return <h1>{arr.map(formatArr)}</h1>;
+    return <h1>{z}</h1>;
 }
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
