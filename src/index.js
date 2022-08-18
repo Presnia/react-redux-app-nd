@@ -10,6 +10,7 @@ function createStore(initialState) {
 const store = createStore([{id: 1, description:'Task 1', completed: false}])
 
 const App = () => {
+    store.getState();
     console.log(store.getState())
     return (
         <>
