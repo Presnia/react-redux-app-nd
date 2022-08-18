@@ -26,15 +26,19 @@ function createStore(reducer, initialState) {
     return { getState, dispatch };
 }
 
-const store = createStore(taskReducer, [{id: 1, description:'Task 1', completed: false}])
+const store = createStore(taskReducer,
+    [
+        {id: 1, description:'Task 1', completed: false},
+        {id: 2, description:'Task 2', completed: false}
+    ]);
 
 const App = () => {
-    console.log(store.getState());
+    const state = store.getState();
 
-    const handleTask = () => {
+    const handleTask = (taskId) => {
         store.dispatch({
             type: 'task/completed',
-            payload: { id: 1 }
+            payload: { id: taskId }
         });
         console.log(store.getState());
     }
@@ -42,10 +46,18 @@ const App = () => {
     return (
         <>
             <h1>App</h1>
-            <button
-                onClick={handleTask}
-            >Complete</button>
-            <h2>Something about app</h2>
+            <ul>
+                {state.map(el => (
+                    <li key={el.id}>
+                        <p>{el.description}</p>
+                        <p>{`Completed: ${el.completed}`}</p>
+                        <button
+                            onClick={() => handleTask(el.id)}
+                        >Complete</button>
+                        <hr/>
+                    </li>
+                ))}
+            </ul>
         </>
     );
 }
