@@ -1,7 +1,8 @@
 import React, {useEffect, useState} from 'react';
-import * as actions from "./store/actionTypes";
-import s from './App.module.css'
+import * as actions from "./store/actions";
 import {initiateStore} from "./store/store";
+
+import s from './App.module.css'
 
 const store = initiateStore();
 
@@ -14,18 +15,12 @@ const App = () => {
         });
     }, [state])
 
-    const handleTask = (taskId) => {
-        store.dispatch({
-            type: actions.taskUpdated,
-            payload: { id: taskId, completed: true},
-        });
+    const completeTask = (taskId) => {
+        store.dispatch(actions.taskCompleted(taskId));
     }
 
     const changeTitle = (taskId) => {
-        store.dispatch({
-            type: actions.taskUpdated,
-            payload: { id: taskId, title: `New title for ${taskId}` },
-        });
+        store.dispatch(actions.titleChanged(taskId));
     }
 
     return (
@@ -39,14 +34,14 @@ const App = () => {
                             Completed:
                             <span
                                 style={
-                                    el.completed === false ? {color: 'red'} : {color: 'lightgreen'}
+                                    el.completed === false ? {color: 'tomato'} : {color: 'lightgreen'}
                                 }
                             >
                              {` ${el.completed}`}
                             </span>
                         </p>
                         <button
-                            onClick={() => handleTask(el.id)}
+                            onClick={() => completeTask(el.id)}
                         >
                             Complete
                         </button>
