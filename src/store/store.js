@@ -7,5 +7,5 @@ const initialState = [
 ];
 
 export function initiateStore(store) {
-    return createStore(taskReducer, initialState)
+    return createStore(taskReducer, initialState);
 };
