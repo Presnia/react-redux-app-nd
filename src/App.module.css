@@ -11,21 +11,17 @@
     justify-content: center;
     align-items: center;
     width: 60%;
-    height: 50vh;
+    height: 100vh;
     margin: auto;
     color: gray;
 }
 
 .title {
-    color: lightblue;
+    color: #43E5E5;
 }
 
 .container ul {
     width: 60%;
-}
-
-.container h1 {
-    padding: 2%;
 }
 
 .title {
@@ -43,18 +39,17 @@
 }
 
 button {
-    padding: 2%;
+    padding: 1.8%;
     margin: 2% 2% 2% 0;
     border-radius: 8px;
-    border: none;
+    border: 1px solid transparent;
     cursor: pointer;
     color: gray;
 }
 
 button:hover {
-    background-color: tomato;
-    color: #FFF;
-    transition: 0.2s ease-in-out;
+    background-color: transparent;
+    transition: background-color 0.3s ease-in-out;
 }
 
 button:active {
@@ -65,4 +60,29 @@ button:active {
 .deleteBtn {
     background-color: tomato;
     color: #FFF;
+}
+
+.deleteBtn:hover {
+    color: tomato;
+    border: 1px solid tomato;
+}
+
+.completeBtn {
+    background-color: lightgreen;
+    color: #FFF;
+}
+
+.completeBtn:hover {
+    color: #00C700;
+    border: 1px solid lightgreen;
+}
+
+.titleBtn {
+    background-color: #43E5E5;
+    color: #FFF;
+}
+
+.titleBtn:hover {
+    color: #35b9b9;
+    border: 1px solid #43E5E5;
 }
