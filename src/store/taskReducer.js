@@ -10,6 +10,6 @@ export default function taskReducer(state, action) {
         }
 
         default:
-            break;
+            return state;
     }
 }
