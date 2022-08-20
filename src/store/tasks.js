@@ -6,16 +6,16 @@ const initialState = [
     {id: 3, title:'Task 3', completed: false},
 ];
 
-export function taskCompleted(id) {
-    return toUpdate({id, completed: true});
-}
-
 export function titleChanged(id) {
     return toUpdate({ id, title: `New title for ${id}` });
 }
 
 export function taskDeleted(id) {
     return toDelete({id});
+}
+
+export const completeTask = (id) => (dispatch, getState) => {
+    dispatch(toUpdate({id, completed: true}));
 }
 
 const taskSlice = createSlice({

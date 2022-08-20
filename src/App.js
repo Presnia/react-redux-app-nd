@@ -1,5 +1,5 @@
-import React, {useEffect, useState} from 'react';
-import { taskCompleted, titleChanged, taskDeleted } from "./store/tasks";
+import React, { useEffect, useState } from 'react';
+import { titleChanged, taskDeleted, completeTask } from "./store/tasks";
 import configureStore from "./store/store";
 
 import s from './App.module.css'
@@ -14,10 +14,6 @@ const App = () => {
             setState(store.getState());
         });
     }, [state])
-
-    const completeTask = (taskId) => {
-        store.dispatch(taskCompleted(taskId));
-    }
 
     const changeTitle = (taskId) => {
         store.dispatch(titleChanged(taskId));
@@ -46,7 +42,7 @@ const App = () => {
                         </p>
                         <button
                             className={s.completeBtn}
-                            onClick={() => completeTask(el.id)}
+                            onClick={() => store.dispatch(completeTask(el.id))}
                         >
                             Complete
                         </button>

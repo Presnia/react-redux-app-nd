@@ -3,5 +3,5 @@ export function logger(store) {
         return function handleAction(action) {
             return next(action);
         };
-    };
+    };    
 }
