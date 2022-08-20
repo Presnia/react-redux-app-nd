@@ -26,7 +26,7 @@ const App = () => {
 
     return (
         <div className={s.container}>
-            <h1>App</h1>
+            <h1>ToDo App</h1>
             <ul>
                 {state.map(el => (
                     <li key={el.id}>
