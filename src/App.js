@@ -11,7 +11,7 @@ const App = ({ store }) => {
         store.subscribe(() => {
             setState(store.getState());
         });
-    }, [])
+    }, [store])
 
     const changeTitle = (taskId) => {
         store.dispatch(titleChanged(taskId));
