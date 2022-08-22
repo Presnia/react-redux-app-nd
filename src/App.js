@@ -5,7 +5,9 @@ import {useDispatch, useSelector} from "react-redux";
 import s from './App.module.css'
 
 const App = ({ store }) => {
-    const state = useSelector((state) => state);
+    const state = useSelector((state) => state.entities);
+    const isLoading = useSelector(state => state.isLoading);
+    const error = useSelector(state => state.error);
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -18,6 +20,13 @@ const App = ({ store }) => {
 
     const deleteTask = (taskId) => {
         dispatch(taskDeleted(taskId));
+    }
+
+    if(isLoading) {
+        return <h2>Loading...</h2>
+    }
+    if(error) {
+        return <p>{error}</p>
     }
 
     return (
