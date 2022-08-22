@@ -20,7 +20,7 @@ const taskSlice = createSlice({
     name: 'task',
     initialState,
     reducers: {
-        toSet(state, action) {
+        recived(state, action) {
             return action.payload;
         },
         toUpdate(state, action) {
@@ -33,7 +33,7 @@ const taskSlice = createSlice({
     }
 });
 
-export const { toUpdate, toDelete, toSet } = taskSlice.actions;
+export const { toUpdate, toDelete, recived } = taskSlice.actions;
 export default taskSlice.reducer;
 
 const taskRequested = createAction('task/requested');
@@ -43,8 +43,8 @@ export const getTasks = () => async (dispatch) => {
     dispatch(taskRequested());
     try {
         const data = await todosService.fetch();
-        dispatch(toSet(data));
+        dispatch(recived(data));
     } catch (error) {
-        dispatch(taskRequestFailed());
+        dispatch(taskRequestFailed(error.message));
     }
 }
