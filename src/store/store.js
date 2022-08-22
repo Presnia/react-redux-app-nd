@@ -1,10 +1,16 @@
-import reducer from "./tasks";
+import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import { logger } from "./middlware/logger";
-import {configureStore} from "@reduxjs/toolkit";
+import errorReducer from "./errors";
+import reducer from "./tasks";
+
+const rootReducer = combineReducers({
+    errors: errorReducer,
+    tasks: reducer,
+});
 
 export default function createStore() {
     return configureStore({
-        reducer,
+        reducer: rootReducer,
         middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
         devTools: process.env.NODE_ENV !== 'production',
     }

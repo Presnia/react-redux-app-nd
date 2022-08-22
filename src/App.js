@@ -1,17 +1,18 @@
 import React, { useEffect } from 'react';
-import {titleChanged, taskDeleted, completeTask, getTasks} from "./store/tasks";
+import {titleChanged, taskDeleted, completeTask, loadTasks, getTasks, getTasksLoadingStatus} from "./store/tasks";
+import {getError} from "./store/errors";
 import {useDispatch, useSelector} from "react-redux";
 
 import s from './App.module.css'
 
-const App = ({ store }) => {
-    const state = useSelector((state) => state.entities);
-    const isLoading = useSelector(state => state.isLoading);
-    const error = useSelector(state => state.error);
+const App = () => {
+    const state = useSelector(getTasks());
+    const isLoading = useSelector(getTasksLoadingStatus());
+    const error = useSelector(getError());
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(getTasks());
+        dispatch(loadTasks());
     }, [dispatch])
 
     const changeTitle = (taskId) => {
