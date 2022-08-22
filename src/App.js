@@ -1,16 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import {titleChanged, taskDeleted, completeTask, getTasks} from "./store/tasks";
+import {useSelector} from "react-redux";
 
 import s from './App.module.css'
 
 const App = ({ store }) => {
-    const [state, setState] = useState(store.getState());
+    const state = useSelector((state) => state);
 
     useEffect(() => {
         store.dispatch(getTasks());
-        store.subscribe(() => {
-            setState(store.getState());
-        });
     }, [store])
 
     const changeTitle = (taskId) => {
