@@ -1,12 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import {titleChanged, taskDeleted, completeTask, getTasks} from "./store/tasks";
-import configureStore from "./store/store";
 
 import s from './App.module.css'
 
-const store = configureStore();
-
-const App = () => {
+const App = ({ store }) => {
     const [state, setState] = useState(store.getState());
 
     useEffect(() => {
