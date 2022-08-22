@@ -57,6 +57,11 @@ button:active {
     transition: transform 0.2s ease-in-out;
 }
 
+.createBtn {
+    color: tomato;
+    text-transform: uppercase;
+}
+
 .deleteBtn {
     background-color: tomato;
     color: #FFF;
@@ -70,6 +75,10 @@ button:active {
 .completeBtn {
     background-color: lightgreen;
     color: #FFF;
+}
+
+.createBtn:hover {
+    border: 1px solid tomato;
 }
 
 .completeBtn:hover {

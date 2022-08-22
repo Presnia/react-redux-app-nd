@@ -1,7 +1,15 @@
 import React, { useEffect } from 'react';
-import {titleChanged, taskDeleted, completeTask, loadTasks, getTasks, getTasksLoadingStatus} from "./store/tasks";
-import {getError} from "./store/errors";
-import {useDispatch, useSelector} from "react-redux";
+import {
+    titleChanged,
+    taskDeleted,
+    completeTask,
+    loadTasks,
+    getTasks,
+    getTasksLoadingStatus,
+    createTask
+} from "./store/tasks";
+import { getError } from "./store/errors";
+import { useDispatch, useSelector } from "react-redux";
 
 import s from './App.module.css'
 
@@ -13,7 +21,15 @@ const App = () => {
 
     useEffect(() => {
         dispatch(loadTasks());
-    }, [dispatch])
+    }, [dispatch]);
+
+    const addNewTask = () => {
+        dispatch(createTask({
+            userId: 1,
+            title: 'New Task',
+            completed: false
+        }));
+    }
 
     const changeTitle = (taskId) => {
         dispatch(titleChanged(taskId));
@@ -33,6 +49,12 @@ const App = () => {
     return (
         <div className={s.container}>
             <h1>ToDo App</h1>
+            <button
+                className={s.createBtn}
+                onClick={addNewTask}
+            >
+                Create
+            </button>
             <ul>
                 {state.map(el => (
                     <li key={el.id}>
